@@ -2,19 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 import WalletCardEthers from'./WalletCardEthers';
 import Header from './components/Header';
-import AirbnbExample from './components/Box';
+import Listings from './components/Listings';
+import { Heading, Box } from '@chakra-ui/react';
+import Title from './components/Title';
 
 function App() {
 
   return (
-    <div className="App">
-{/*       <Header/> */}
-      <WalletCardEthers/>
-      <AirbnbExample/>
-      <AirbnbExample/>
-      <AirbnbExample/>
-      <AirbnbExample/>
-    </div>
+    <Box bgColor='black'>
+      <Header/>
+      <Title/>
+      <Listings/>
+    </Box>
   );
 }
 

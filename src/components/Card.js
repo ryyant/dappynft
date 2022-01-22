@@ -2,7 +2,7 @@
 
 import { Box, Image, Badge } from "@chakra-ui/react";
 
-function AirbnbExample() {
+function Card() {
     const property = {
       imageUrl: 'https://bit.ly/2Z4KKcF',
       imageAlt: 'Rear view of modern home with pool',
@@ -15,7 +15,7 @@ function AirbnbExample() {
     }
   
     return (
-      <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+      <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' bg='purple'>
         <Image src={property.imageUrl} alt={property.imageAlt} />
   
         <Box p='6'>
@@ -62,4 +62,4 @@ function AirbnbExample() {
     )
   }
 
-export default AirbnbExample;
+export default Card;

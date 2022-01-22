@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import { Button, Flex, Center, Text } from "@chakra-ui/react";
+import { Button, Popover, PopoverTrigger, Portal, PopoverContent, PopoverArrow, PopoverHeader, PopoverCloseButton, PopoverBody, PopoverFooter } from "@chakra-ui/react";
 
-const WalletCardEthers = () => {
+const ConnectWallet = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [defaultAccount, setDefaultAccount] = useState(null);
   const [userBalance, setUserBalance] = useState(null);
@@ -39,25 +39,33 @@ const WalletCardEthers = () => {
   }, [defaultAccount]);
 
   return (
-    <Center>
-      <Text
+    <Popover>
+    <PopoverTrigger>
+        <Button colorScheme='blue' m={4}>{connButtonText}</Button>
+    </PopoverTrigger>
+    <Portal>
+        <PopoverContent>
+        <PopoverArrow />
+        <PopoverHeader>Address: {defaultAccount} <br/>Balance: {userBalance}</PopoverHeader>
+        <PopoverCloseButton />
+        <PopoverBody>
+            <Button colorScheme='blue' onClick={connectWalletHandler}>{connButtonText}</Button>
+        </PopoverBody>
+        <PopoverFooter>{errorMessage}</PopoverFooter>
+        </PopoverContent>
+    </Portal>
+    </Popover>
+  
+/*       <Text
         bgGradient="linear(to-l, #7928CA, #FF0080)"
         bgClip="text"
         fontSize="6xl"
         fontWeight="extrabold"
       >
         dappyNFT
-      </Text>
-      <Button onClick={connectWalletHandler}>{connButtonText}</Button>
-      <Flex className="accountDisplay">
-        <h3>Address: {defaultAccount}</h3>
-      </Flex>
-      <Flex className="balanceDisplay">
-        <h3>Balance: {userBalance}</h3>
-      </Flex>
-      {errorMessage}
-    </Center>
+      </Text> */
+      
   );
 };
 
-export default WalletCardEthers;
+export default ConnectWallet;
