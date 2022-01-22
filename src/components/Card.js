@@ -7,15 +7,13 @@ function Card() {
       imageUrl: 'https://bit.ly/2Z4KKcF',
       imageAlt: 'Rear view of modern home with pool',
       beds: 3,
-      baths: 2,
       title: 'Modern home in city center in the heart of historic Los Angeles',
       formattedPrice: '$1,900.00',
       reviewCount: 34,
-      rating: 4,
     }
   
     return (
-      <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' bg='purple'>
+      <Box maxW='60' borderWidth='1px' borderRadius='lg' overflow='hidden'>
         <Image src={property.imageUrl} alt={property.imageAlt} />
   
         <Box p='6'>
@@ -31,7 +29,7 @@ function Card() {
               textTransform='uppercase'
               ml='2'
             >
-              {property.beds} beds &bull; {property.baths} baths
+              {property.beds} beds
             </Box>
           </Box>
   

@@ -41,7 +41,7 @@ const ConnectWallet = () => {
   return (
     <Popover>
     <PopoverTrigger>
-        <Button colorScheme='blue' m={4}>{connButtonText}</Button>
+        <Button colorScheme='blackAlpha' m={4}>{connButtonText}</Button>
     </PopoverTrigger>
     <Portal>
         <PopoverContent>
@@ -49,22 +49,12 @@ const ConnectWallet = () => {
         <PopoverHeader>Address: {defaultAccount} <br/>Balance: {userBalance}</PopoverHeader>
         <PopoverCloseButton />
         <PopoverBody>
-            <Button colorScheme='blue' onClick={connectWalletHandler}>{connButtonText}</Button>
+            <Button colorScheme='orange' onClick={connectWalletHandler}>{connButtonText}</Button>
         </PopoverBody>
         <PopoverFooter>{errorMessage}</PopoverFooter>
         </PopoverContent>
     </Portal>
     </Popover>
-  
-/*       <Text
-        bgGradient="linear(to-l, #7928CA, #FF0080)"
-        bgClip="text"
-        fontSize="6xl"
-        fontWeight="extrabold"
-      >
-        dappyNFT
-      </Text> */
-      
   );
 };
 
