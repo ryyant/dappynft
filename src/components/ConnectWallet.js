@@ -1,12 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { ethers } from "ethers";
-import { Button, Popover, PopoverTrigger, Portal, PopoverContent, PopoverArrow, PopoverHeader, PopoverCloseButton, PopoverBody, PopoverFooter } from "@chakra-ui/react";
+import React, { useState, useEffect } from 'react';
+import { ethers } from 'ethers';
+import {
+  Button,
+  Popover,
+  PopoverTrigger,
+  Portal,
+  PopoverContent,
+  PopoverArrow,
+  PopoverHeader,
+  PopoverCloseButton,
+  PopoverBody,
+  PopoverFooter,
+} from '@chakra-ui/react';
 
 const ConnectWallet = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [defaultAccount, setDefaultAccount] = useState(null);
   const [userBalance, setUserBalance] = useState(null);
-  const [connButtonText, setConnButtonText] = useState("Connect Wallet");
+  const [connButtonText, setConnButtonText] = useState('Connect Wallet');
   const [provider, setProvider] = useState(null);
 
   const connectWalletHandler = () => {
@@ -16,17 +27,17 @@ const ConnectWallet = () => {
 
       // connect to metamask
       window.ethereum
-        .request({ method: "eth_requestAccounts" })
+        .request({ method: 'eth_requestAccounts' })
         .then((result) => {
-          setConnButtonText("Wallet Connected");
+          setConnButtonText('Wallet Connected');
           setDefaultAccount(result[0]);
         })
         .catch((error) => {
           setErrorMessage(error.message);
         });
     } else if (!window.ethereum) {
-      console.log("Need to install MetaMask");
-      setErrorMessage("Please install MetaMask browser extension to interact");
+      console.log('Need to install MetaMask');
+      setErrorMessage('Please install MetaMask browser extension to interact');
     }
   };
 
@@ -40,20 +51,27 @@ const ConnectWallet = () => {
 
   return (
     <Popover>
-    <PopoverTrigger>
-        <Button colorScheme='blackAlpha' m={4}>{connButtonText}</Button>
-    </PopoverTrigger>
-    <Portal>
+      <PopoverTrigger>
+        <Button colorScheme='blackAlpha' m={4}>
+          {connButtonText}
+        </Button>
+      </PopoverTrigger>
+      <Portal>
         <PopoverContent>
-        <PopoverArrow />
-        <PopoverHeader>Address: {defaultAccount} <br/>Balance: {userBalance}</PopoverHeader>
-        <PopoverCloseButton />
-        <PopoverBody>
-            <Button colorScheme='orange' onClick={connectWalletHandler}>{connButtonText}</Button>
-        </PopoverBody>
-        <PopoverFooter>{errorMessage}</PopoverFooter>
+          <PopoverArrow />
+          <PopoverHeader>
+            Address: {defaultAccount} <br />
+            Balance: {userBalance}
+          </PopoverHeader>
+          <PopoverCloseButton />
+          <PopoverBody>
+            <Button colorScheme='orange' onClick={connectWalletHandler}>
+              {connButtonText}
+            </Button>
+          </PopoverBody>
+          <PopoverFooter>{errorMessage}</PopoverFooter>
         </PopoverContent>
-    </Portal>
+      </Portal>
     </Popover>
   );
 };
