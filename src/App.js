@@ -1,23 +1,23 @@
 import Header from './components/Header';
 import Listings from './components/Listings';
-import { Box, Image } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import Title from './components/Title';
-import BlueMoonCat from './assets/bluemooncat.png';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <Box bgColor='black'>
+import "./App.css";
+
+class App extends Component {
+
+  render() {
+    return (
+      <Box bgColor='black'>
       <Header/>
-{/*       <Image src={BlueMoonCat} 
-      alt='Blue MoonCat' 
-      pos="absolute"
-      top="10"
-      left='10'
-      /> */}
+      {/* <Heading color='white'> The stored value is: {this.state.accounts} </Heading> */}
       <Title/>
       <Listings/>
     </Box>
-  );
+    );
+  }
 }
 
 export default App;

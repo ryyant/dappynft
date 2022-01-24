@@ -1,9 +1,13 @@
 import { Box, Image, Badge, Text} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import CardDetails from "./CardDetails";
+import { doc, setDoc, updateDoc, getDoc } from 'firebase/firestore';
+import db from '../config/firebase.js';
 
 function Card({ item }) {
+
   return (
+    <>
     <Box maxW="60" borderWidth="1px" borderRadius="lg" overflow="hidden">
       <Box h={280}>
       <Image src={item.image_url}/>
@@ -34,6 +38,7 @@ function Card({ item }) {
             </Box>
           </Box>
     </Box>
+    </>
   );
 }
 
